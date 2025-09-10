@@ -1,0 +1,60 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* เอฟเฟกต์ Parallax */
+.parallax {
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.bg1 {
+    background-image: url("https://pbs.twimg.com/media/Gw2evfjbEAA4URy?format=jpg&name=large");
+}
+
+.bg2 {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVkZFeNzCpEkcmGs5t0Ot5mmxrevbmCEskgJ7yNW9r6GP9j0ZAM9qUvI0Cdx3wd3Vjg_M&usqp=CAU");
+}
+
+.caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.caption .border {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px 40px;
+    font-size: 30px;
+    letter-spacing: 2px;
+    border-radius: 10px;
+}
+
+/* กล่องข้อความสีดำ */
+.black-block {
+    background-color: #111;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.black-block h1 {
+    color:red;
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+
+.black-block p {
+    color:gold;
+    font-size: 20px;
+}
