@@ -1,5 +1,3 @@
-getTodo()
-
 function addTodo() {
     let text = prompt("สิ่งที่ต้องทำ");
     if (!text) return;
@@ -39,5 +37,6 @@ function deleteCookie(delid, delmsg) {
 }
 
 $(document).ready(function () {
+    getTodo()
     $("#NewBtn").on("click", addTodo);
 });
