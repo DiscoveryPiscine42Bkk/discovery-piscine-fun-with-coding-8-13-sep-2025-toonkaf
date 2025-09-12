@@ -35,8 +35,10 @@
         else if (checkNum(number1) && checkNum(number2)) {
             if (parseInt(number1) < 0 || parseInt(number2) < 0) alert("Error :(");
             else if ((operator == "%" || operator == "/") && number2 == 0) alert("It's over 9000!")
+            
             else {
                 alert(eval(number1 + operator + number2));
+                console.log(eval(number1 + operator + number2));
             }
         } else alert("Error :(")
     }

@@ -46,7 +46,7 @@
 
     function main(e){
         change_color(e);
-        if (e.width() < 420){
+        if (e.width() + 10 <= 420){
             e.width(e.width() + 10);
             e.height(e.height() + 10);
         } else {

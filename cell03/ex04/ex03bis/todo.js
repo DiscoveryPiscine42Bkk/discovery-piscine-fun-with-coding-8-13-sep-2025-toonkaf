@@ -1,10 +1,11 @@
 getTodo()
 
 function addTodo() {
-    let text = prompt("สิ่งที่ต้องทำ")
-    let date = Number(Date.now())
-    setCookie(date, text)
-    getTodo()
+    let text = prompt("สิ่งที่ต้องทำ");
+    if (!text) return;
+    let id = String(Date.now());
+    setCookie(id, text);
+    getTodo();
 }
 
 function setCookie(id, message) {
@@ -13,22 +14,27 @@ function setCookie(id, message) {
 
 function getTodo() {
     $("#ft_list").empty();
-    let cookies = document.cookie;
+    let cookies = document.cookie || "";
+    if (!cookies) return;
     let cookiesArray = cookies.split(";");
     for (let i = 0; i < cookiesArray.length; i++) {
-        let data = (cookiesArray[i]).split("=");
-        let id = (data[0].replace(/\s/g, ""))
-        let msg = data[1]
+        let cookie = cookiesArray[i].trim();
+        if (!cookie) continue;
+        let eqIndex = cookie.indexOf("=");
+        if (eqIndex === -1) continue;
+        let id = cookie.substring(0, eqIndex).trim();
+        let msg = decodeURIComponent(cookie.substring(eqIndex + 1));
         if (id) {
-            $("#ft_list").prepend($("<div>").text(msg).on("click", function () { deleteCookie(id, msg); }));
+            $("#ft_list").prepend(
+                $("<div>").text(msg).on("click", function () {deleteCookie(id, msg);}));
         }
     }
 }
 function deleteCookie(delid, delmsg) {
-    console.log(`${delmsg}${delid}`)
-    if (confirm(`คุณต้องการที่จะลบ ${delmsg} ใช่ไหม`) == true) {
+    console.log(`${delmsg}${delid}`);
+    if (confirm(`คุณต้องการที่จะลบ "${delmsg}" ใช่ไหม`) === true) {
         document.cookie = delid + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        window.location.reload()
+        getTodo();
     }
 }
 
